@@ -88,10 +88,10 @@ START: Theme Default CSS
   --tj-color-text-body-2: #a9b8b8;
   --tj-color-text-body-3: #67787a;
   --tj-color-text-body-4: #18292c;
-  --tj-color-theme-primary: #1e8a8a;
+  --tj-color-theme-primary: #1e588a;
   --tj-color-theme-bg: #d8e5e5;
-  --tj-color-theme-dark: #0c1e21;
-  --tj-color-theme-dark-2: #18292c;
+  --tj-color-theme-dark: #030506;
+  --tj-color-theme-dark-2: rgb(16, 35, 49);
   --tj-color-theme-dark-3: #364e52;
   --tj-color-theme-dark-4: #67787a;
   --tj-color-grey-1: #ecf0f0;
@@ -5279,7 +5279,6 @@ START: About CSS
     border-radius: 16px;
     color: rgba(0, 0, 0, 0.8);
     text-decoration: none;
-    font-size: 15px;
     font-weight: 800;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -5287,6 +5286,11 @@ START: About CSS
     overflow: hidden;
     min-width: 60px;
     text-align: center;
+}
+
+.nav-item div{
+  font-size: 13px;
+
 }
 
 .nav-item::before {
