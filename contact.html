@@ -181,10 +181,10 @@
                   </li>
                   <li class="has-dropdown"><a href="#">Services</a>
                     <ul class="sub-menu">
-                      <li><a href="company-formation.html">Company Formation</a></li>
+                      <li><a href="company-formation-in-qatar.html">Company Formation</a></li>
                       <li class="current-menu-ancestor"><a href="notary-services.html">Notary Services in Qatar</a></li>
                       <li><a href="transalation-services.html">Translation Services</a></li>
-                      <li><a href="PRO-services.html">PRO Services</a></li>
+                      <li><a href="pro-services-in-qatar.html">PRO Services</a></li>
                       <li><a href="corporate-bank-account.html">Corporate Bank Account</a></li>
                       <li><a href="certificate-attestation.html">Certificate Attestation</a></li>
                     <li><a href="auditing-and-accounting.html">Audit and Accounting</a></li>
@@ -238,10 +238,10 @@
                   </li>
                   <li class="has-dropdown"><a href="#">Services</a>
                     <ul class="sub-menu">
-                      <li><a href="company-formation.html">Company Formation</a></li>
+                      <li><a href="company-formation-in-qatar.html">Company Formation</a></li>
                       <li class="current-menu-ancestor"><a href="notary-services.html">Notary Services in Qatar</a></li>
                       <li><a href="transalation-services.html">Translation Services</a></li>
-                      <li><a href="PRO-services.html">PRO Services</a></li>
+                      <li><a href="pro-services-in-qatar.html">PRO Services</a></li>
                       <li><a href="corporate-bank-account.html">Corporate Bank Account</a></li>
                       <li><a href="certificate-attestation.html">Certificate Attestation</a></li>
                     <li><a href="auditing-and-accounting.html">Audit and Accounting</a></li>
@@ -356,38 +356,35 @@
           <div class="col-lg-6">
             <div class="contact-form wow fadeInUp" data-wow-delay=".1s">
               <h3 class="title title-anim">Feel Free to Get in Touch or Visit our Location.</h3>
-              <form id="contact-form">
+              <form id="contact-form" action="assets/mail/contact-form.php" method="POST">
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="form-input">
-                      <input type="text" name="cfName">
-                      <label class="cf-label">Full Name <span>*</span></label>
+                      <input type="text" name="cfName" required placeholder="Name">
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-input">
-                      <input type="email" name="cfEmail">
-                      <label class="cf-label">Email Address <span>*</span></label>
+                      <input type="email" name="cfEmail" required placeholder="Email">
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-input">
-                      <input type="tel" name="cfPhone">
-                      <label class="cf-label">Phone number <span>*</span></label>
+                      <input type="tel" name="cfPhone" required placeholder="Phone Number">
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-input">
                       <div class="tj-nice-select-box">
                         <div class="tj-select">
-                          <select name="cfSubject">
-                            <option value="0">Chose a option</option>
-                            <option value="1">Business Strategy</option>
-                            <option value="2">Customer Experience</option>
-                            <option value="3">Sustainability and ESG</option>
-                            <option value="4">Training and Development</option>
-                            <option value="5">IT Support & Maintenance</option>
-                            <option value="6">Marketing Strategy</option>
+                          <select name="cfSubject" required>
+                            <option value="0">General Inquiry</option>
+                            <option value="1">Company Formation</option>
+                            <option value="2">PRO services</option> 
+                            <option value="3">Audit and Accounting</option>
+                            <option value="4">Corporate Bank Account Services</option>
+                            <option value="5">Transalation Services</option>
+                            <option value="6">Notary Services</option>
                           </select>
                         </div>
                       </div>
@@ -395,17 +392,17 @@
                   </div>
                   <div class="col-sm-12">
                     <div class="form-input message-input">
-                      <textarea name="cfMessage" id="message"></textarea>
-                      <label class="cf-label">Type message <span>*</span></label>
+                      <textarea name="cfMessage" id="message" required placeholder="Type message"></textarea>
                     </div>
                   </div>
                   <div class="submit-btn">
-                    <button class="tj-primary-btn" type="submit">
+                    <button class="tj-primary-btn" type="submit" id="submit-btn">
                       <span class="btn-text"><span>Submit Now</span></span>
                       <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                     </button>
                   </div>
                 </div>
+                <div id="form-message" class="mt-3"></div>
               </form>
             </div>
           </div>
@@ -468,10 +465,10 @@
               <div class="footer-widget widget-nav-menu">
                 <h5 class="title">Services</h5>
                 <ul>
-                    <li><a href="company-formation.html">Company Formation</a></li>
+                    <li><a href="company-formation-in-qatar.html">Company Formation</a></li>
                     <li><a href="notary-services.html">Notary Services in Qatar</a></li>
                     <li><a href="transalation-services.html">Translation Services</a></li>
-                    <li><a href="PRO-services.html">PRO Services</a></li>
+                    <li><a href="pro-services-in-qatar.html">PRO Services</a></li>
                     <li><a href="corporate-bank-account.html">Corporate Bank Account</a></li>
                     <li><a href="certificate-attestation.html">Certificate Attestation</a></li>
                 </ul>
@@ -565,6 +562,65 @@
   <script src="assets/js/wow.min.js"></script>
   <script src="assets/js/meanmenu.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <div id="toast-message" style="display:none;position:fixed;bottom:30px;right:30px;z-index:9999;min-width:250px;padding:16px 24px;background:#222;color:#fff;border-radius:6px;box-shadow:0 2px 12px rgba(0,0,0,0.15);font-size:16px;opacity:0;transition:opacity 0.4s, bottom 0.4s;">
+    <span id="toast-text"></span>
+    <span id="toast-close" style="margin-left:16px;cursor:pointer;font-weight:bold;">&times;</span>
+  </div>
+  <script>
+    function getQueryParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+    function showToast(message, isSuccess) {
+      const toast = document.getElementById('toast-message');
+      const toastText = document.getElementById('toast-text');
+      toastText.textContent = message;
+      toast.style.background = isSuccess ? '#28a745' : '#dc3545';
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.opacity = 1; toast.style.bottom = '50px'; }, 100);
+      // Auto-hide after 5s
+      setTimeout(hideToast, 5000);
+    }
+    function hideToast() {
+      const toast = document.getElementById('toast-message');
+      toast.style.opacity = 0;
+      toast.style.bottom = '30px';
+      setTimeout(() => { toast.style.display = 'none'; }, 400);
+    }
+    document.getElementById('toast-close').onclick = hideToast;
+    // On page load, check for status and msg
+    document.addEventListener('DOMContentLoaded', function() {
+      const status = getQueryParam('status');
+      const msg = getQueryParam('msg');
+      if (status && msg) {
+        showToast(decodeURIComponent(msg), status === 'success');
+        // Remove query params from URL (optional, for cleaner URL)
+        if (window.history.replaceState) {
+          const url = new URL(window.location);
+          url.searchParams.delete('status');
+          url.searchParams.delete('msg');
+          window.history.replaceState({}, document.title, url.pathname);
+        }
+      }
+    });
+  </script>
+
+  <script>
+    $('.form-input input, .form-input textarea').on('input', function() {
+        if ($(this).val()) {
+            $(this).closest('.form-input').addClass('has-value');
+        } else {
+            $(this).closest('.form-input').removeClass('has-value');
+        }
+    });
+    // On page load, for pre-filled values (e.g., after reload)
+    $('.form-input input, .form-input textarea').each(function() {
+        if ($(this).val()) {
+            $(this).closest('.form-input').addClass('has-value');
+        }
+    });
+  </script>
 </body>
 
 </html>

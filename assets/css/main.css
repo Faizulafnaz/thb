@@ -12052,3 +12052,45 @@ START: Animate CSS
   }
 }
 /* !END: Animate CSS *//*# sourceMappingURL=main.css.map */
+
+/* Floating label styles for contact form */
+.form-input {
+  position: relative;
+}
+.form-input input,
+.form-input textarea {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 16px 12px 8px 12px;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 6px;
+  transition: border-color 0.2s;
+}
+.form-input .cf-label {
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  color: #888;
+  font-size: 16px;
+  pointer-events: none;
+  background: #fff;
+  padding: 0 4px;
+  transition: 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+.form-input input:focus + .cf-label,
+.form-input textarea:focus + .cf-label,
+.form-input.has-value .cf-label {
+  top: -10px;
+  left: 8px;
+  font-size: 12px;
+  color: #1e588a;
+  background: #fff;
+  padding: 0 4px;
+  z-index: 2;
+}
+.form-input input:focus,
+.form-input textarea:focus {
+  border-color: #1e588a;
+  outline: none;
+}

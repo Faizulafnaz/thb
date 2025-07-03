@@ -925,4 +925,51 @@ Progressbar js
 			});
 		});
 	}
+
+	////////////////////////////////////////////////////
+	// Contact Form Handler
+	if ($("#contact-form").length > 0) {
+		$("#contact-form").on("submit", function(e) {
+			e.preventDefault();
+			
+			var $form = $(this);
+			var $submitBtn = $("#submit-btn");
+			var $messageDiv = $("#form-message");
+			var originalBtnText = $submitBtn.find(".btn-text span").text();
+			
+			// Show loading state
+			$submitBtn.prop("disabled", true);
+			$submitBtn.find(".btn-text span").text("Sending...");
+			$messageDiv.html("").removeClass("alert-success alert-danger");
+			
+			// Get form data
+			var formData = new FormData(this);
+			
+			// Send AJAX request
+			$.ajax({
+				url: $form.attr("action"),
+				type: "POST",
+				data: formData,
+				processData: false,
+				contentType: false,
+				dataType: "json",
+				success: function(response) {
+					if (response.status === "success") {
+						$messageDiv.html('<div class="alert alert-success">' + response.message + '</div>');
+						$form[0].reset();
+					} else {
+						$messageDiv.html('<div class="alert alert-danger">' + response.message + '</div>');
+					}
+				},
+				error: function(xhr, status, error) {
+					$messageDiv.html('<div class="alert alert-danger">Sorry, there was an error. Please try again later.</div>');
+				},
+				complete: function() {
+					// Reset button state
+					$submitBtn.prop("disabled", false);
+					$submitBtn.find(".btn-text span").text(originalBtnText);
+				}
+			});
+		});
+	}
 })(jQuery);
