@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     // If no errors, send email
     if (empty($errors)) {
-        $to = "Tbhservicesqa@gmail.com"; // Change this to your email
+        $to = "faizulafnaz007@gmail.com"; // Change this to your email
         $subject_line = "New Contact Form Submission - TBH Business Services";
         $subject_map = array(
             '0' => 'General Inquiry',
